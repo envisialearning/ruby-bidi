@@ -783,7 +783,13 @@ class Bidi
 
   # Helper function to reverse the string for us before rendering.
   def render_visual i_string, default_direction=nil
-    return to_visual(i_string, default_direction).reverse!
+    str = to_visual(i_string, default_direction)
+    str.reverse!
+
+    paragraphs = str.split(/\n/)
+    paragraphs.reverse!
+
+    return paragraphs.join("\n")
   end
 end
 
