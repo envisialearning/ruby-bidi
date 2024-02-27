@@ -546,10 +546,8 @@ class Bidi
               invalid_level_changes -= 1
             end
           else # of 'case'
-            if bidi_type != 'BN'
-              char['level']=embedding_level
-              char['bidiType']=override_status if override_status
-            end
+            char['level']=embedding_level
+            char['bidiType']=override_status if override_status
         end # case
       end # each
       par['characters'].delete_if {|char|
@@ -557,8 +555,7 @@ class Bidi
         char['bidiType']=='LRE' or
         char['bidiType']=='RLO' or
         char['bidiType']=='LRO' or
-        char['bidiType']=='PDF' or
-        char['bidiType']=='BN'
+        char['bidiType']=='PDF'
       }
       split_into_runs par
       resolve_weak_types par
